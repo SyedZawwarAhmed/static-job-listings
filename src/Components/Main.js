@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Job from "./Job";
+import "../Stylesheets/Main.css"
 
 function Main() {
   const [data, setData] = useState([]);
@@ -37,7 +38,11 @@ function Main() {
     />
   ));
 
-  return <div className="main">{jobs}</div>;
+  return (
+    <div className="main">
+      <div className="jobs">{jobs}</div>
+    </div>
+  );
 }
 
 export default Main;

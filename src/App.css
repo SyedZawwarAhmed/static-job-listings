@@ -26,6 +26,11 @@ h1,
 h2,
 h3,
 p,
-span {
+span,
+button {
   font-family: "Spartan", sans-serif;
+}
+
+body {
+  background-color: var(--lg-cyan-bg);
 }

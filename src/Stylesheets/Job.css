@@ -1,0 +1,60 @@
+.job {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 2.5em 3em;
+  gap: min(10rem);
+  box-shadow: 0 0 10px 5px hsla(180, 29%, 50%, 0.205);
+  border-radius: 5px;
+}
+
+.col-1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.company {
+  color: var(--dd-cyan);
+  font-size: 1rem;
+}
+
+.position {
+  color: var(--vd-cyan);
+  font-size: 1.5rem;
+}
+
+.post-details {
+  color: var(--dg-cyan);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.post-details span {
+  display: block;
+}
+
+.col-2 {
+  display: flex;
+  gap: 1rem;
+}
+
+.tablet {
+  display: block;
+  color: var(--dd-cyan);
+  font-weight: 700;
+  background-color: var(--lg-cyan-ft);
+  padding: 0.6em;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
