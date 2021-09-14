@@ -40,6 +40,7 @@ function Main() {
 
   return (
     <div className="main">
+      <header></header>
       <div className="jobs">{jobs}</div>
     </div>
   );
