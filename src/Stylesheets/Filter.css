@@ -1,0 +1,31 @@
+.filter {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.filter-tablet {
+  display: inline-flex;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.filter-name {
+  font-weight: 700;
+  color: var(--dd-cyan);
+  background-color: var(--lg-cyan-bg);
+  padding: 0.6em;
+}
+
+.filter-close {
+  font-size: 1.5rem;
+  width: 2.5rem;
+  aspect-ratio: 1/1;
+  border: none;
+  color: var(--lg-cyan-bg);
+  background-color: var(--dd-cyan);
+}
+
+.filter-close:hover {
+  background-color: var(--vd-cyan);
+}

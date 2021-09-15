@@ -1,0 +1,21 @@
+.filter-block {
+  width: min(100%, 70rem);
+  background-color: white;
+  margin: -2rem auto 0;
+  padding: 1.5em 3em;
+  box-shadow: 0 0 12px 8px hsla(180, 29%, 50%, 0.205);
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.clear {
+  font-weight: 700;
+  color: var(--dd-cyan);
+  cursor: pointer;
+}
+
+.clear:hover {
+  text-decoration: underline;
+}

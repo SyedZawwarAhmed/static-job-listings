@@ -3,7 +3,7 @@ import "../Stylesheets/Job.css";
 
 function Job(props) {
   const languages = props.languages.map((item) => (
-    <button className="language tablet">{item}</button>
+    <button className="language tablet" onClick={() => props.applyFilter(item)}>{item}</button>
   ));
   return (
     <div className={props.featured ? "job featured" : "job"}>
@@ -28,8 +28,8 @@ function Job(props) {
         </div>
       </div>
       <div className="col-2">
-        <button className="role tablet">{props.role}</button>
-        <button className="level tablet">{props.level}</button>
+        <button className="role tablet" onClick={() => props.applyFilter(props.role)}>{props.role}</button>
+        <button className="level tablet" onClick={() => props.applyFilter(props.level)}>{props.level}</button>
         {languages}
       </div>
     </div>

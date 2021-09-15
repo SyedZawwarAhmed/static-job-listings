@@ -1,20 +1,19 @@
 .main {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 header {
-    width: 100%;
-    height: 10rem;
-    background-image: url("../assets/images/bg-header-desktop.svg");
-    background-color: var(--dd-cyan);
+  width: 100%;
+  height: 10rem;
+  background-image: url("../assets/images/bg-header-desktop.svg");
+  background-color: var(--dd-cyan);
 }
 
 .jobs {
-    width: min(70rem, 100%);
-    margin: 0 auto; 
-    padding: 4em 1em;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+  width: min(70rem, 100%);
+  margin: 5rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
