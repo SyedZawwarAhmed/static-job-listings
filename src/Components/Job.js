@@ -2,18 +2,27 @@ import React from "react";
 import "../Stylesheets/Job.css";
 
 function Job(props) {
-  const languages = props.languages.map((item) => (
-    <button className="language tablet" onClick={() => props.applyFilter(item)}>{item}</button>
+  const languages = props.languages.map((item, index) => (
+    <button key={index}
+      className="language tablet"
+      onClick={() => props.applyFilter(["languages", item])}
+    >
+      {item}
+    </button>
   ));
   return (
-    <div className={props.featured ? "job featured" : "job"}>
-      <div className="col-1">
-        <img src={props.logo} />
+    <div  className={props.featured ? "job featured" : "job"}>
+      <div key={props.id} className="col-1">
+        <img src={props.logo} alt="" />
         <div className="details">
           <div className="line-1">
             <h3 className="company">{props.company}</h3>
             {props.new ? <button className="new-btn">New!</button> : ""}
-            {props.featured ? <button className="featured-btn">Featured</button> : ""}
+            {props.featured ? (
+              <button className="featured-btn">Featured</button>
+            ) : (
+              ""
+            )}
           </div>
           <div className="line-2">
             <h1 className="position">{props.position}</h1>
@@ -28,8 +37,18 @@ function Job(props) {
         </div>
       </div>
       <div className="col-2">
-        <button className="role tablet" onClick={() => props.applyFilter(props.role)}>{props.role}</button>
-        <button className="level tablet" onClick={() => props.applyFilter(props.level)}>{props.level}</button>
+        <button
+          className="role tablet"
+          onClick={() => props.applyFilter(["role", props.role])}
+        >
+          {props.role}
+        </button>
+        <button
+          className="level tablet"
+          onClick={() => props.applyFilter(["level", props.level])}
+        >
+          {props.level}
+        </button>
         {languages}
       </div>
     </div>

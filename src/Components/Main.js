@@ -5,8 +5,8 @@ import FilterBlock from "./FilterBlock";
 
 function Main() {
   const [data, setData] = useState([]);
-  const [filter, setFilter] = useState([]);
   const [isFilterApplied, setIsFilterApplied] = useState(false);
+  const [filter, setFilter] = useState([]);
   const getData = () => {
     fetch("data.json", {
       headers: {
@@ -26,7 +26,25 @@ function Main() {
 
   const applyFilter = (newFilter) => {
     setIsFilterApplied(true);
-    setFilter((filter) => [...filter, newFilter]);
+    if (!filter.map((item) => item[1]).includes(newFilter[1])) {
+      setFilter((filter) => [...filter, newFilter]);
+    }
+    setFilter((filter) => {
+      for (let i = 0; i < data.length; i++) {
+        const item = data[i];
+        let filterPassed = true;
+        for (let j = 0; j < filter.length; j++) {
+          const filterItem = filter[j];
+          if (filterItem[0] === "languages") {
+            filterPassed = item[filterItem[0]].includes(filterItem[1]);
+          } else {
+            filterPassed = filterItem[1] === item[filterItem[0]];
+          }
+        }
+        item.filterApplied = filterPassed;
+      }
+      return filter;
+    });
   };
 
   const removeFilter = () => {
@@ -38,26 +56,57 @@ function Main() {
     if (filter.length === 1) {
       removeFilter();
     }
-    setFilter(filter => filter.filter(item => item !== filterToBeRemoved));
+    setFilter((filter) => filter.filter((item) => item !== filterToBeRemoved));
   };
 
-  const jobs = data.map((item) => (
-    <Job
-      company={item.company}
-      logo={item.logo}
-      new={item.new}
-      featured={item.featured}
-      position={item.position}
-      role={item.role}
-      level={item.level}
-      postedAt={item.postedAt}
-      contract={item.contract}
-      location={item.location}
-      languages={item.languages}
-      tools={item.tools}
-      applyFilter={applyFilter}
-    />
-  ));
+  const jobs = data.map((item, index) => {
+    if (isFilterApplied) {
+      if (item.filterApplied) {
+        return (
+          <Job
+            key={index}
+            id={item.id}
+            company={item.company}
+            logo={item.logo}
+            new={item.new}
+            featured={item.featured}
+            position={item.position}
+            role={item.role}
+            level={item.level}
+            postedAt={item.postedAt}
+            contract={item.contract}
+            location={item.location}
+            languages={item.languages}
+            tools={item.tools}
+            applyFilter={applyFilter}
+            filterApplied={item.filterApplied}
+            isFilterApplied={isFilterApplied}
+          />
+        );
+      }
+    } else {
+      return (
+        <Job
+          id={item.id}
+          company={item.company}
+          logo={item.logo}
+          new={item.new}
+          featured={item.featured}
+          position={item.position}
+          role={item.role}
+          level={item.level}
+          postedAt={item.postedAt}
+          contract={item.contract}
+          location={item.location}
+          languages={item.languages}
+          tools={item.tools}
+          applyFilter={applyFilter}
+          filterApplied={item.filterApplied}
+          isFilterApplied={isFilterApplied}
+        />
+      );
+    }
+  });
 
   return (
     <div className="main">

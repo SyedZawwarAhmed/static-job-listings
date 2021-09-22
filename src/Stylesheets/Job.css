@@ -13,6 +13,10 @@
   padding-left: 2.7em;
 }
 
+.filter-applied {
+  display: none;
+}
+
 .col-1 {
   display: flex;
   justify-content: center;

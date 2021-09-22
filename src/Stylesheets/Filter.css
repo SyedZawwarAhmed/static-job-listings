@@ -1,10 +1,9 @@
 .filter {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
+  max-width: 100%;
 }
 
 .filter-tablet {
+  /* margin: 0 1.5em 1.5em 0; */
   display: inline-flex;
   border-radius: 3px;
   overflow: hidden;
