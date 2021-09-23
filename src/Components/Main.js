@@ -33,6 +33,7 @@ function Main() {
       for (let i = 0; i < data.length; i++) {
         const item = data[i];
         let filterPassed = true;
+
         for (let j = 0; j < filter.length; j++) {
           const filterItem = filter[j];
           if (filterItem[0] === "languages") {
@@ -40,6 +41,8 @@ function Main() {
           } else {
             filterPassed = filterItem[1] === item[filterItem[0]];
           }
+
+          if (!filterPassed) break;
         }
         item.filterApplied = filterPassed;
       }
@@ -57,6 +60,26 @@ function Main() {
       removeFilter();
     }
     setFilter((filter) => filter.filter((item) => item !== filterToBeRemoved));
+
+    setFilter((filter) => {
+      for (let i = 0; i < data.length; i++) {
+        const item = data[i];
+        let filterPassed = true;
+
+        for (let j = 0; j < filter.length; j++) {
+          const filterItem = filter[j];
+          if (filterItem[0] === "languages") {
+            filterPassed = item[filterItem[0]].includes(filterItem[1]);
+          } else {
+            filterPassed = filterItem[1] === item[filterItem[0]];
+          }
+
+          if (!filterPassed) break;
+        }
+        item.filterApplied = filterPassed;
+      }
+      return filter;
+    });
   };
 
   const jobs = data.map((item, index) => {
