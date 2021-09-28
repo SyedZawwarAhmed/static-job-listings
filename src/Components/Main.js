@@ -16,7 +16,6 @@ function Main() {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setData(data);
       });
   };
@@ -82,58 +81,32 @@ function Main() {
     });
   };
 
-  const jobs = data.map((item, index) => {
-    if (isFilterApplied) {
-      if (item.filterApplied) {
-        return (
-          <Job
-            key={index}
-            id={item.id}
-            company={item.company}
-            logo={item.logo}
-            new={item.new}
-            featured={item.featured}
-            position={item.position}
-            role={item.role}
-            level={item.level}
-            postedAt={item.postedAt}
-            contract={item.contract}
-            location={item.location}
-            languages={item.languages}
-            tools={item.tools}
-            applyFilter={applyFilter}
-            filterApplied={item.filterApplied}
-            isFilterApplied={isFilterApplied}
-          />
-        );
-      }
-    } else {
-      return (
-        <Job
-          id={item.id}
-          company={item.company}
-          logo={item.logo}
-          new={item.new}
-          featured={item.featured}
-          position={item.position}
-          role={item.role}
-          level={item.level}
-          postedAt={item.postedAt}
-          contract={item.contract}
-          location={item.location}
-          languages={item.languages}
-          tools={item.tools}
-          applyFilter={applyFilter}
-          filterApplied={item.filterApplied}
-          isFilterApplied={isFilterApplied}
-        />
-      );
-    }
-  });
+  const jobs = data
+    .filter((item) => (!isFilterApplied ? item : item.filterApplied))
+    .map((item, index) => (
+      <Job
+        key={index}
+        id={item.id}
+        company={item.company}
+        logo={item.logo}
+        new={item.new}
+        featured={item.featured}
+        position={item.position}
+        role={item.role}
+        level={item.level}
+        postedAt={item.postedAt}
+        contract={item.contract}
+        location={item.location}
+        languages={item.languages}
+        tools={item.tools}
+        applyFilter={applyFilter}
+        filterApplied={item.filterApplied}
+        isFilterApplied={isFilterApplied}
+      />
+    ));
 
   return (
     <div className="main">
-      <header></header>
       {isFilterApplied ? (
         <FilterBlock
           filter={filter}

@@ -13,7 +13,7 @@ function Job(props) {
   return (
     <div  className={props.featured ? "job featured" : "job"}>
       <div key={props.id} className="col-1">
-        <img src={props.logo} alt="" />
+        <img className="logo-img" src={props.logo} alt="" />
         <div className="details">
           <div className="line-1">
             <h3 className="company">{props.company}</h3>
@@ -36,6 +36,7 @@ function Job(props) {
           </div>
         </div>
       </div>
+      <hr />
       <div className="col-2">
         <button
           className="role tablet"

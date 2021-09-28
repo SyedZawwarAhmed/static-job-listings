@@ -3,7 +3,7 @@
 }
 
 .filter-tablet {
-  /* margin: 0 1.5em 1.5em 0; */
+  margin: 0.6em;
   display: inline-flex;
   border-radius: 3px;
   overflow: hidden;
@@ -23,6 +23,7 @@
   border: none;
   color: var(--lg-cyan-bg);
   background-color: var(--dd-cyan);
+  transition: 0.2s all ease;
 }
 
 .filter-close:hover {

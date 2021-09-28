@@ -1,6 +1,9 @@
 .main {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1em;
 }
 
 header {
@@ -12,8 +15,14 @@ header {
 
 .jobs {
   width: min(70rem, 100%);
-  margin: 5rem auto;
+  margin: 3em 1em 0 1em;
   display: flex;
   flex-direction: column;
   gap: 2rem;
+}
+
+@media screen and (max-width: 1000px) {
+  .jobs {
+    gap: 4rem;
+  }
 }

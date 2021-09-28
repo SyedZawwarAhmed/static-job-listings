@@ -1,16 +1,17 @@
 .job {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   justify-content: space-between;
   align-items: center;
   background-color: white;
-  padding: 2.5em 3em;
+  padding: 2.5em 5vw;
   box-shadow: 0 0 10px 5px hsla(180, 29%, 50%, 0.205);
   border-radius: 5px;
 }
 
 .featured {
   border-left: 0.3em solid var(--dd-cyan);
-  padding-left: 2.7em;
+  padding-left: calc(5vw - 0.3em);
 }
 
 .filter-applied {
@@ -19,7 +20,6 @@
 
 .col-1 {
   display: flex;
-  justify-content: center;
   align-items: center;
   gap: 1.5rem;
 }
@@ -37,19 +37,19 @@
 
 .new-btn,
 .featured-btn {
-    color: var(--lg-cyan-ft);
-    background-color: var(--dd-cyan);
-    font-size: 0.8rem;
-    font-weight: 700;
-    padding: 0.57em 0.8em;
-    text-transform: uppercase;
-    border: none;
-    border-radius: 2em;
-    cursor: pointer;
+  color: var(--lg-cyan-ft);
+  background-color: var(--dd-cyan);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.57em 0.8em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 2em;
+  cursor: pointer;
 }
 
 .featured-btn {
-    background-color: var(--vd-cyan)
+  background-color: var(--vd-cyan);
 }
 
 .position {
@@ -67,25 +67,69 @@
   color: var(--dg-cyan);
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: clamp(0.3rem, 3vw, 1rem);
+}
+
+.line-3 span {
+  font-size: clamp(0.7rem, 3vw,1rem);
 }
 
 .line-3 span {
   display: block;
 }
 
+hr {
+  display: none;
+}
+
 .col-2 {
-  display: flex;
-  gap: 1rem;
+  margin-left: auto;
+  text-align: right;
 }
 
 .tablet {
-  display: block;
+  display: inline-block;
   color: var(--dd-cyan);
-  font-weight: 700;
   background-color: var(--lg-cyan-ft);
+  font-weight: 700;
   padding: 0.6em;
+  margin: 0.5em;
   border: none;
   border-radius: 3px;
   cursor: pointer;
+  transition: 0.2s all ease;
+}
+
+.tablet:hover {
+  color: var(--lg-cyan-ft);
+  background-color: var(--dd-cyan);
+}
+
+@media screen and (max-width: 1000px) {
+  .logo-img {
+    width: 5rem;
+    margin-top: -5rem;
+  }
+
+  .col-1 {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 746px) {
+  .job {
+    grid-template-columns: 1fr;
+  }
+
+  hr {
+    display: block;
+    margin-block: 1rem;
+    color: var(--lg-cyan-bg)
+  }
+
+  .col-2 {
+    margin-left: -0.5em;
+    text-align: left;
+  }
 }
