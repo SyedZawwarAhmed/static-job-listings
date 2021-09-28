@@ -93,7 +93,8 @@ hr {
   background-color: var(--lg-cyan-ft);
   font-weight: 700;
   padding: 0.6em;
-  margin: 0.5em;
+  margin: 1em;
+  margin-right: 0;
   border: none;
   border-radius: 3px;
   cursor: pointer;
@@ -129,7 +130,12 @@ hr {
   }
 
   .col-2 {
-    margin-left: -0.5em;
+    margin-left: 0;
     text-align: left;
+  }
+
+  .tablet {
+    margin-left: 0;
+    margin-right: 1em;
   }
 }

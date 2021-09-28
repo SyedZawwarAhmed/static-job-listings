@@ -2,7 +2,7 @@
   width: min(100%, 70rem);
   background-color: white;
   margin: -2em 2em 0;
-  padding: 1.5em 5vw;
+  padding: 1.5em clamp(0.5em, 5vw, 3em);
   box-shadow: 0 0 12px 8px hsla(180, 29%, 50%, 0.205);
   border-radius: 5px;
   display: flex;
