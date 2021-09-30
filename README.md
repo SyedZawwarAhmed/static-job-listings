@@ -26,7 +26,7 @@ Users should be able to:
 - See hover states for all interactive elements on the page
 - Filter job listings based on the categories
 
-### Screenshot
+### Here what it looks like
 
 ![Desktop preview](public/images/desktop-preview.jpg)
 
